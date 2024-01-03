@@ -3,14 +3,29 @@ body {
     background-color: #323232;
     font-family: "Open Sans", sans-serif;
     color: white; /* Für bessere Lesbarkeit bei dunklem Hintergrund */
+    margin: 0;
+}
+h1 {
+    text-align: center;
 }
 
 /* Stil für die Tabelle */
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 #content table {
     width: 300px;
     height: 300px;
     border-collapse: collapse;
     margin: auto; /* Zentriert die Tabelle */
+}
+
+td:hover {
+    background-color: rgba(255,255,255, 0.2);
+    cursor: pointer;
 }
 
 /* Stil für die Zellen der Tabelle */
@@ -37,4 +52,16 @@ body {
 }
 #content table tr td:last-child {
     border-right: 0;
+}
+
+@keyframes fillAnimation {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+svg circle {
+    stroke-dasharray: 88; /* Die Länge des Umfangs des Kreises (2 * π * r). Hier ist r = 14, also etwa 88 */
+    stroke-dashoffset: 88; /* Starten Sie mit einem vollen Offset, der gleich dem Umfang ist */
+    animation: fillAnimation 2s infinite; /* Führen Sie die Animation unendlich oft aus */
 }
